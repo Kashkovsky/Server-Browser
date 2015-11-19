@@ -44,7 +44,7 @@ namespace FileDirBrowse.Models
         public FileViewModel(DirectoryInfo info)
         {
             Name = info.Name;
-            Location = info.Parent?.FullName ?? "";
+            Location = info.Parent != null ? info.Parent.FullName : "";
             Path = info.FullName;
         }
 

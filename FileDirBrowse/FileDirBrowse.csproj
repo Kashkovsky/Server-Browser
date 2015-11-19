@@ -151,17 +151,14 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BrowseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DAL\ApplicationFileManager.cs" />
-    <Compile Include="DAL\IApplicationFileManager.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Infrastructure\NinjectDr.cs" />
     <Compile Include="Models\BrowseViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

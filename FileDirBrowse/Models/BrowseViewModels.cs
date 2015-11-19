@@ -54,11 +54,12 @@ namespace FileDirBrowse.Models
         public string CurrentParentPath { get; set; }
         public ApplicationCategory ApplicationCategory { get; set; }
 
-        public Size Size
-            =>
-                Length <= 10485760
+        public Size Size { get { return Length <= 10485760
                     ? Size.TenOrLess
                     : Length > 10485760 && Length <= 52428800 ? Size.From10To50 : Size.Over100;
+            }
+        }
+                
 
         private long Length { get; }
     }

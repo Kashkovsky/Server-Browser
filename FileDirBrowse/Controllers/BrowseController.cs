@@ -9,10 +9,16 @@ namespace FileDirBrowse.Controllers
 {
     public class BrowseController : ApiController
 
-    {   
-        public IEnumerable<FileViewModel> Get() => ApplicationFileManager.GetFiles(null);
+    {
+        public IEnumerable<FileViewModel> Get()
+        {
+            return ApplicationFileManager.GetFiles(null);
+        }
 
-        public IEnumerable<FileViewModel> Post(PathModel path) => ApplicationFileManager.GetFiles(path.Path);
+        public IEnumerable<FileViewModel> Post(PathModel path)
+        {
+            return ApplicationFileManager.GetFiles(path.Path);
+        }
 
         public IEnumerable<FileViewModel> UpStairs(PathModel path)
         {

@@ -6,15 +6,13 @@ using FileDirBrowse.Models;
 
 namespace FileDirBrowse.DAL
 {
-    public class ApplicationFileManager : IApplicationFileManager
+    public class ApplicationFileManager
     {
         public static IList<FileViewModel> GetRootDirectories()
 
         {
             var browseList = new List<FileViewModel>();
             var drives = DriveInfo.GetDrives();
-            var systemPath = Environment.GetEnvironmentVariable("windir");
-            var systemRoot = Path.GetPathRoot(systemPath);
             foreach (var drive in drives.Where(drive => drive.IsReady))
             {
                 switch (drive.DriveType)
@@ -69,7 +67,6 @@ namespace FileDirBrowse.DAL
             path = Decode(path);
             try
             {
-                
                 var dirs = Directory.GetDirectories(path, "*.*",
                     SearchOption.TopDirectoryOnly);
 
@@ -95,8 +92,15 @@ namespace FileDirBrowse.DAL
             return result;
         }
 
-        public static string Encode(string path) => path.Replace("\\", "/");
-        public static string Decode(string path) => path.Replace("/", "\\");
+        public static string Encode(string path)
+        {
+            return path.Replace("\\", "/");
+        }
+
+        public static string Decode(string path)
+        {
+            return path.Replace("/", "\\");
+        }
 
         private static FileType GetFileType(string path)
         {
